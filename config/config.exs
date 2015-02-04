@@ -16,12 +16,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Postgres connection
-# config :jotto, Jotto.Repo,
-#   username: "robmerrell",
-#   password: "password",
-#   hostname: "localhost"
-
 config :jotto, Jotto.Repo,
   username: System.get_env("JOTTO_DB_USERNAME") || "root",
   password: System.get_env("JOTTO_DB_PASSWORD") || "",

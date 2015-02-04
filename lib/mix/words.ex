@@ -10,21 +10,28 @@ defmodule Mix.Tasks.Words do
     in separate lists.
     """
 
+    def run(_) do
+      Mix.Task.run "app.start"
+
+      File.stream!("#{word_file_path}/guess_words.txt")
+      |> insert_words(false)
+
+      File.stream!("#{word_file_path}/secret_words.txt")
+      |> insert_words(true)
+    end
+
+    defp word_file_path do
+      case Mix.env do
+        :test -> "test/test_data"
+            _ -> "#{Application.app_dir(:jotto)}/priv/dictionaries"
+      end
+    end
+
     defp insert_words(word_stream, secret) do
       Enum.each word_stream, fn(line) ->
         stripped = String.strip(line)
         Jotto.Repo.insert %Jotto.Word{word: stripped, secret: secret}
       end
-    end
-
-    def run(_) do
-      Mix.Task.run "app.start"
-
-      File.stream!("#{:code.priv_dir(:jotto)}/dictionaries/guess_words.txt")
-      |> insert_words(false)
-
-      File.stream!("#{:code.priv_dir(:jotto)}/dictionaries/secret_words.txt")
-      |> insert_words(true)
     end
 
   end

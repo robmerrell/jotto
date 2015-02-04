@@ -1,4 +1,4 @@
-defmodule Jotto.PageController do
+defmodule Jotto.GameController do
   use Phoenix.Controller
 
   plug :action

@@ -8,18 +8,8 @@ defmodule Jotto.Router do
     plug :protect_from_forgery
   end
 
-  pipeline :api do
-    plug :accepts, ~w(json)
-  end
-
   scope "/", Jotto do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
+    get "/", GameController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Jotto do
-  #   pipe_through :api
-  # end
 end
