@@ -25,6 +25,7 @@ defmodule Jotto.Mixfile do
     [{:phoenix, "~> 0.8.0"},
      {:cowboy, "~> 1.0"},
      {:postgrex, "~> 0.7.0"},
-     {:ecto, "~> 0.7.2"}]
+     {:ecto, "~> 0.7.2"},
+     {:exrm, "~> 0.14.17"}]
   end
 end
