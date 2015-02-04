@@ -4,14 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>Jotto</title>
     <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/jotto.css">
+
+    <script src="http://fb.me/react-0.12.2.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
   </head>
 
   <body>
+    <div class="messages">
+      <strong>How to play</strong> I have a secret word that you are trying to guess. The secret word is 5 letters long and all of your guesses must also be 5 letters long. The secret word will never have duplicate letters (such as "funny", which has the letter "n" twice), but you are free to guess using words with duplicate letters. Everytime you guess a word I will tell you how many letters from your word are in my secret word. Your goal is to guess the secret word based on those clues.
+    </div>
+
+    <div class="messages">
+      This is a small game I made to test out using <a href="http://www.elixir-lang.org">Elixir</a> on the server and <a href="http://facebook.github.io/react/">React</a> in the browser doing the communication via websockets. I have only tested this in Safari and Chrome and there are bound to be lots of bugs. The source is licensed under the MIT license and <a href="https://www.github.com/robmerrell/jotto">can be found here</a>
+    </div>
+
     <div>
       <%= @inner %>
     </div>

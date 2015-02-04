@@ -1,1 +1,10 @@
-blah
+<div class="guess-input">
+</div>
+
+<ul class="guesses">
+  <li>first <strong>0</strong></li>
+  <li>queen <strong>2</strong></li>
+  <li>hands <strong>1</strong></li>
+</ul>
+
+<script src="/js/app.js" type="text/jsx"></script>

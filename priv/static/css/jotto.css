@@ -1,0 +1,18 @@
+.messages {
+  padding: 20px 50px 0 50px;
+}
+
+.guess-input {
+  margin-top: 80px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+ul li {
+  color: #6f6f6f;
+  font-size: 2.5em;
+}
