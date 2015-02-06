@@ -12,9 +12,10 @@ use Mix.Config
 # disk for the key and cert.
 
 config :jotto, Jotto.Endpoint,
-  url: [host: "example.com"],
-  http: [port: System.get_env("PORT")],
-  secret_key_base: "2VNL7CM5Rxpnde6SunH/ouSJtZT7lZbdHP5YDonmHvj/yiC1d2Ss040H1L6L2odT"
+  url: [host: "jotto.robdor.com"],
+  http: [port: System.get_env("JOTTO_PORT") || 4100],
+  secret_key_base: "2VNL7CM5Rxpnde6SunH/ouSJtZT7lZbdHP5YDonmHvj/yiC1d2Ss040H1L6L2odT",
+  server: true
 
 # Do not pring debug messages in production
 config :logger, level: :info

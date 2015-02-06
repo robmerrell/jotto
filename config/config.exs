@@ -9,8 +9,7 @@ use Mix.Config
 config :jotto, Jotto.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "2VNL7CM5Rxpnde6SunH/ouSJtZT7lZbdHP5YDonmHvj/yiC1d2Ss040H1L6L2odT",
-  debug_errors: false,
-  server: true
+  debug_errors: false
 
 # Configures Elixir's Logger
 config :logger, :console,
