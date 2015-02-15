@@ -14,9 +14,9 @@ defmodule Mix.Tasks.Deployer do
     """
 
     def run(_) do
-      Deployer.run_vagrant_cmd! "mix local.hex --force"
-      Deployer.run_vagrant_cmd! "yes | mix deps.get"
-      Deployer.run_vagrant_cmd! "mix release"
+      DeployHelper.run_vagrant_cmd! "mix local.hex --force"
+      DeployHelper.run_vagrant_cmd! "yes | mix deps.get"
+      DeployHelper.run_vagrant_cmd! "mix release"
     end
   end
 
@@ -38,10 +38,10 @@ defmodule Mix.Tasks.Deployer do
       remote = "freebsd@robdor.com"
       remote_dir = "/home/freebsd/deployments/jotto.robdor.com"
 
-      Deployer.scp! "rel/jotto/jotto-#{version}.tar.gz", remote_dir, remote
-      Deployer.run_ssh_cmd! "mkdir -p #{version}", remote, remote_dir
-      Deployer.run_ssh_cmd! "tar xvfz jotto-#{version}.tar.gz -C ./#{version}", remote, remote_dir
-      Deployer.run_ssh_cmd! "ln -s #{version} latest", remote, remote_dir
+      DeployHelper.scp! "rel/jotto/jotto-#{version}.tar.gz", remote_dir, remote
+      DeployHelper.run_ssh_cmd! "mkdir -p #{version}", remote, remote_dir
+      DeployHelper.run_ssh_cmd! "tar xvfz jotto-#{version}.tar.gz -C ./#{version}", remote, remote_dir
+      DeployHelper.run_ssh_cmd! "ln -s #{version} latest", remote, remote_dir
     end
   end
 

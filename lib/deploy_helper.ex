@@ -1,4 +1,4 @@
-defmodule Deployer do
+defmodule DeployHelper do
   @moduledoc """
   Provides a couple of functions to make the deployment mix tasks easier to deal with.
   """
@@ -7,7 +7,6 @@ defmodule Deployer do
   Run the given command using the env_vars provided by prod_env in a vagrant host.
   """
   def run_vagrant_cmd!(cmd) do
-    IO.puts "cd /vagrant; #{env_vars()} #{cmd}"
     {output, ret} = System.cmd "vagrant", ["ssh", "-c", "cd /vagrant; #{env_vars()} #{cmd}"], [stderr_to_stdout: true]
     if ret != 0, do: raise "Could not run command #{cmd} - #{output}"
     IO.puts output
